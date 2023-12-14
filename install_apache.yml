@@ -1,0 +1,19 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: update repo cache
+    apt:
+      update_cache: yes
+
+  - name: install phpsupport for apache
+    apt:
+      name: libapache2-mod-php
+      state: latest
+
+  - name: install apache2 package
+    apt:
+      name: apache2
+      state: latest
